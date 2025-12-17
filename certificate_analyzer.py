@@ -185,7 +185,8 @@ def analyze_certificate(
             model=model,
             messages=messages,
             max_tokens=2000,
-            temperature=temperature
+            temperature=temperature,
+            response_format={"type": "json_object"}
         )
         
         result_text = response.choices[0].message.content
