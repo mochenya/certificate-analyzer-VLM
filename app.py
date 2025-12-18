@@ -7,6 +7,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 from certificate_analyzer import analyze_certificate
 from csv_batch_exporter import process_single_result
+from config import COLUMNS
 
 # 加载环境变量
 load_dotenv()
@@ -22,11 +23,6 @@ DEFAULT_IMAGES_DIR = os.path.join(CURRENT_DIR, "images")
 if not os.path.exists(DEFAULT_IMAGES_DIR):
     os.makedirs(DEFAULT_IMAGES_DIR)
 
-COLUMNS = [
-    "文件路径", "获奖人员", "赛事名称", "赛道", "赛级", 
-    "奖级", "作品名称", "团体或个体", "队名", "指导教师", 
-    "颁发时间", "颁发机构"
-]
 
 # --- 核心处理逻辑 ---
 

@@ -5,6 +5,7 @@ import glob
 from certificate_analyzer import analyze_certificate
 from typing import Dict, Any, Union, Optional
 from dotenv import load_dotenv
+from config import COLUMNS
 
 def format_list_field(value: Union[list, str, None]) -> str:
     """
@@ -96,17 +97,10 @@ def batch_process_images(
     # 生成带时间戳的文件名
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     csv_filename = os.path.join(output_folder, f"certificate_records_{timestamp}.csv")
-    
-    # 定义CSV表头顺序
-    columns = [
-        "文件路径", "获奖人员", "赛事名称", "赛道", "赛级", 
-        "奖级", "作品名称", "团体或个体", "队名", "指导教师", 
-        "颁发时间", "颁发机构"
-    ]
 
     # 2. 初始化 CSV (写入表头)
     # 使用 utf-8-sig 以实现 UTF-8-BOM 编码，防止 Excel 打开乱码
-    pd.DataFrame(columns=columns).to_csv(csv_filename, index=False, encoding="utf-8-sig")
+    pd.DataFrame(columns=COLUMNS).to_csv(csv_filename, index=False, encoding="utf-8-sig")
     print(f"[-] 任务开始，结果将保存至: {csv_filename}")
 
     # 3. 获取所有图片文件

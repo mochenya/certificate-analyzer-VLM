@@ -95,6 +95,8 @@ certificate-analyzer/
 ├── app.py                   # 🌐 Gradio Web 界面入口
 ├── csv_batch_exporter.py    # ⚙️ 核心批量处理脚本
 ├── certificate_analyzer.py  # 🧠 大模型调用与解析核心类
+├── config.py                # ⚙️ 统一列配置管理模块
+├── temple.csv               # 📊 CSV 列名模板文件（可自定义）
 ├── pyproject.toml           # 📦 UV 依赖配置文件
 ├── .env                     # 🔑 环境变量（需自行创建）
 ├── prompt/
